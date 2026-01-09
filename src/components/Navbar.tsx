@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { fadeInUp, staggerContainer } from "../utils/animations";
 
 const navLinks = [
   { href: "#services", label: "Services" },
@@ -14,8 +15,8 @@ const Navbar = () => {
 
   return (
     <motion.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, filter: "blur(10px)" }}
+      animate={{ opacity: 1, filter: "blur(0px)" }}
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50"
     >
@@ -27,23 +28,30 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="hidden md:flex items-center gap-8"
+          >
             {navLinks.map((link) => (
-              <a
+              <motion.a
+                variants={fadeInUp}
                 key={link.href}
                 href={link.href}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
-              </a>
+              </motion.a>
             ))}
-            <a
+            <motion.a
+              variants={fadeInUp}
               href="#book-call"
-              className="px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-lg transition-all hover:bg-primary/90"
+              className="px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-lg transition-colors hover:bg-primary/90"
             >
               Book a Call
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
 
           {/* Mobile Menu Button */}
           <button

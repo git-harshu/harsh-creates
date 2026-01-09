@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Globe, Bot, ShoppingCart, Zap } from "lucide-react";
+import { fadeInUp, staggerContainer } from "../utils/animations";
 
 const projects = [
   {
@@ -33,10 +34,10 @@ const Projects = () => {
     <section id="projects" className="py-24 sm:py-32 bg-card/30">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 text-sm font-medium text-primary border border-primary/20 rounded-full mb-4">
@@ -50,22 +51,28 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 gap-6"
+        >
           {projects.map((project, index) => (
             <motion.a
               key={index}
+              variants={fadeInUp}
               href={project.link}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative p-6 sm:p-8 bg-card rounded-xl border border-border card-hover block"
+              onClick={(e) => project.link === "#" && e.preventDefault()}
+              className={`group relative p-6 sm:p-8 bg-card rounded-xl border border-border hover:border-primary/50 transition-colors block ${project.link === "#" ? "cursor-default" : "cursor-pointer"}`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   <project.icon className="w-6 h-6" />
                 </div>
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground transition-all opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                {project.link !== "#" && (
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground transition-all opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                )}
               </div>
 
               <span className="inline-block px-2.5 py-1 text-xs font-medium text-primary bg-primary/10 rounded-full mb-3">
@@ -92,9 +99,9 @@ const Projects = () => {
               </div>
             </motion.a>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </section >
   );
 };
 

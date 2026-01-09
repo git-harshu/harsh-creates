@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "../utils/animations";
 
 const ProjectAudit = () => {
     const [score, setScore] = useState(0);
@@ -30,24 +31,39 @@ const ProjectAudit = () => {
     return (
         <section className="py-24 bg-secondary/30 relative">
             <div className="container max-w-4xl">
-                <div className="text-center mb-12 space-y-4">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    className="text-center mb-12 space-y-4">
                     <h2 className="text-3xl sm:text-4xl font-bold">
                         Is Your Project <span className="text-primary">Ready?</span>
                     </h2>
                     <p className="text-muted-foreground text-lg">
                         Check the boxes below to see if we're a good fit for a collaboration.
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="bg-card border border-border rounded-3xl p-8 sm:p-12 shadow-xl">
-                    <div className="space-y-4">
+                    <motion.div
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        className="space-y-4"
+                    >
                         {checklist.map((item, index) => (
-                            <div
+                            <motion.button
                                 key={index}
+                                variants={fadeInUp}
+                                type="button"
+                                role="checkbox"
+                                aria-checked={!!checkedItems[index]}
                                 onClick={() => toggleItem(index)}
-                                className={`flex items-center gap-4 p-4 rounded-xl border cursor-pointer transition-all duration-200 ${checkedItems[index]
+                                className={`w-full text-left flex items-center gap-4 p-4 rounded-xl border cursor-pointer transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary/50 ${checkedItems[index]
                                     ? "bg-primary/10 border-primary/50 shadow-[0_0_15px_rgba(var(--primary),0.1)]"
-                                    : "bg-background/50 border-border hover:border-primary/30"
+                                    : "bg-background/50 border-border hover:border-primary/50"
                                     }`}
                             >
                                 <div className={`w-6 h-6 rounded-full flex items-center justify-center border transition-colors ${checkedItems[index] ? "bg-primary border-primary" : "border-muted-foreground"
@@ -57,11 +73,16 @@ const ProjectAudit = () => {
                                 <span className={`text-lg ${checkedItems[index] ? "text-foreground font-medium" : "text-muted-foreground"}`}>
                                     {item}
                                 </span>
-                            </div>
+                            </motion.button>
                         ))}
-                    </div>
+                    </motion.div>
 
-                    <div className="mt-12 pt-8 border-t border-border">
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className="mt-12 pt-8 border-t border-border">
                         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                             <div>
                                 <p className="text-sm text-muted-foreground uppercase tracking-wider font-semibold mb-1">
@@ -81,7 +102,7 @@ const ProjectAudit = () => {
                                 >
                                     <button
                                         onClick={scrollToContact}
-                                        className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20"
+                                        className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-bold hover:bg-primary/90 transition-colors shadow-lg hover:shadow-primary/20"
                                     >
                                         Let's Start the Conversation <ArrowRight className="w-5 h-5" />
                                     </button>
@@ -92,10 +113,10 @@ const ProjectAudit = () => {
                                 </div>
                             )}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

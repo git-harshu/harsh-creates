@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Calculator, DollarSign, Clock, Users, Sparkles, ArrowDown } from "lucide-react";
+import { fadeInUp, staggerContainer } from "../utils/animations";
 
 const RoiCalculator = () => {
     const [teamSize, setTeamSize] = useState(3);
@@ -34,7 +35,12 @@ const RoiCalculator = () => {
                     {/* Left Column: Inputs */}
                     <div className="flex-1 w-full space-y-8">
                         {/* Header */}
-                        <div className="space-y-4">
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={fadeInUp}
+                            viewport={{ once: true }}
+                            className="space-y-4">
                             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10">
                                 <Calculator className="w-4 h-4 text-primary" />
                                 <span className="text-sm font-medium text-primary">
@@ -48,19 +54,26 @@ const RoiCalculator = () => {
                                 See how much revenue you&apos;re leaving on the table by not
                                 automating repetitive workflows.
                             </p>
-                        </div>
+                        </motion.div>
 
                         {/* Sliders Container */}
-                        <div className="space-y-8 p-6 sm:p-8 rounded-3xl border border-border bg-card/50">
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={staggerContainer}
+                            viewport={{ once: true }}
+                            className="space-y-8 p-6 sm:p-8 rounded-3xl border border-border bg-card/50"
+                        >
                             {/* Team Size Input */}
-                            <div className="space-y-4">
+                            <motion.div variants={fadeInUp} className="space-y-4">
                                 <div className="flex justify-between items-center">
-                                    <label className="flex items-center gap-2 font-medium">
+                                    <label htmlFor="team-size" className="flex items-center gap-2 font-medium">
                                         <Users className="w-4 h-4 text-primary" /> Team Size
                                     </label>
                                     <span className="font-bold text-primary">{teamSize} people</span>
                                 </div>
                                 <input
+                                    id="team-size"
                                     type="range"
                                     min="1"
                                     max="50"
@@ -68,12 +81,12 @@ const RoiCalculator = () => {
                                     onChange={(e) => setTeamSize(Number(e.target.value))}
                                     className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
                                 />
-                            </div>
+                            </motion.div>
 
                             {/* Hours Input */}
-                            <div className="space-y-4">
+                            <motion.div variants={fadeInUp} className="space-y-4">
                                 <div className="flex justify-between items-center">
-                                    <label className="flex items-center gap-2 font-medium">
+                                    <label htmlFor="hours" className="flex items-center gap-2 font-medium">
                                         <Clock className="w-4 h-4 text-primary" /> Weekly Hours / Person
                                     </label>
                                     <span className="font-bold text-primary">{hoursPerWeek} hrs</span>
@@ -82,6 +95,7 @@ const RoiCalculator = () => {
                                     Time spent on repetitive data entry, emails, or admin.
                                 </p>
                                 <input
+                                    id="hours"
                                     type="range"
                                     min="1"
                                     max="40"
@@ -89,17 +103,18 @@ const RoiCalculator = () => {
                                     onChange={(e) => setHoursPerWeek(Number(e.target.value))}
                                     className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
                                 />
-                            </div>
+                            </motion.div>
 
                             {/* Rate Input */}
-                            <div className="space-y-4">
+                            <motion.div variants={fadeInUp} className="space-y-4">
                                 <div className="flex justify-between items-center">
-                                    <label className="flex items-center gap-2 font-medium">
+                                    <label htmlFor="rate" className="flex items-center gap-2 font-medium">
                                         <DollarSign className="w-4 h-4 text-primary" /> Avg. Hourly Rate
                                     </label>
                                     <span className="font-bold text-primary">${hourlyRate}/hr</span>
                                 </div>
                                 <input
+                                    id="rate"
                                     type="range"
                                     min="15"
                                     max="200"
@@ -108,16 +123,16 @@ const RoiCalculator = () => {
                                     onChange={(e) => setHourlyRate(Number(e.target.value))}
                                     className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
                                 />
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
                     </div>
 
                     {/* Right Column: Results Card */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial="hidden"
+                        whileInView="visible"
+                        variants={fadeInUp}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
                         className="flex-1 w-full"
                     >
                         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-card via-card to-primary/10 border border-primary/20 p-8 sm:p-12 text-center shadow-2xl shadow-primary/5">
@@ -139,7 +154,7 @@ const RoiCalculator = () => {
                             <div className="space-y-4">
                                 <button
                                     onClick={handleScrollToBooking}
-                                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-xl transition-all duration-300 hover:bg-primary/90 glow"
+                                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-xl transition-colors duration-300 hover:bg-primary/90"
                                 >
                                     Reclaim This Revenue
                                     <ArrowDown className="w-5 h-5" />

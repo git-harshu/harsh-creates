@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Clock, Calendar } from "lucide-react";
+import { fadeInUp, staggerContainer } from "../utils/animations";
 
 const articles = [
   {
@@ -33,10 +34,10 @@ const Articles = () => {
     <section id="articles" className="py-24 sm:py-32">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 text-sm font-medium text-primary border border-primary/20 rounded-full mb-4">
@@ -50,16 +51,19 @@ const Articles = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-6"
+        >
           {articles.map((article, index) => (
             <motion.a
               key={index}
+              variants={fadeInUp}
               href={article.link}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group flex flex-col p-6 bg-card rounded-xl border border-border card-hover"
+              className="group flex flex-col p-6 bg-card rounded-xl border border-border hover:border-primary/50 transition-colors"
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="px-2.5 py-1 text-xs font-medium text-primary bg-primary/10 rounded-full">
@@ -71,7 +75,7 @@ const Articles = () => {
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
                 {article.title}
               </h3>
-              
+
               <p className="text-muted-foreground text-sm mb-4 flex-grow line-clamp-3">
                 {article.excerpt}
               </p>
@@ -88,18 +92,18 @@ const Articles = () => {
               </div>
             </motion.a>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-10"
         >
           <a
             href="#"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg transition-all duration-300 hover:bg-card hover:border-primary/30"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg transition-colors duration-300 hover:bg-card hover:border-primary/50"
           >
             View All Articles
             <ArrowUpRight className="w-4 h-4" />

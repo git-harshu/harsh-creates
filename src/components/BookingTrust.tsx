@@ -1,4 +1,6 @@
 import { ShieldCheck, Lightbulb, History } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "../utils/animations";
 
 const BookingTrust = () => {
     const benefits = [
@@ -22,9 +24,15 @@ const BookingTrust = () => {
     return (
         <section className="py-12 bg-card/30 border-y border-border/40">
             <div className="container">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <motion.div
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                >
                     {benefits.map((benefit, index) => (
-                        <div key={index} className="flex flex-col items-center text-center gap-3">
+                        <motion.div variants={fadeInUp} key={index} className="flex flex-col items-center text-center gap-3">
                             <div className="p-3 rounded-full bg-primary/10 text-primary">
                                 <benefit.icon className="w-6 h-6" />
                             </div>
@@ -34,9 +42,9 @@ const BookingTrust = () => {
                                     {benefit.description}
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Code2, Bot, Zap, Globe, Database, Settings } from "lucide-react";
+import { fadeInUp, staggerContainer } from "../utils/animations";
 
 const services = [
   {
@@ -39,10 +40,10 @@ const Services = () => {
     <section id="services" className="py-24 sm:py-32 bg-card/30">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 text-sm font-medium text-primary border border-primary/20 rounded-full mb-4">
@@ -56,15 +57,18 @@ const Services = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group p-6 bg-card rounded-xl border border-border card-hover"
+              variants={fadeInUp}
+              className="group p-6 bg-card rounded-xl border border-border hover:border-primary/50 transition-colors"
             >
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary mb-4 transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                 <service.icon className="w-6 h-6" />
@@ -73,7 +77,7 @@ const Services = () => {
               <p className="text-muted-foreground">{service.description}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
