@@ -31,20 +31,20 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "work.17akki.akash@gmail.com",
-      href: "mailto:work.17akki.akash@gmail.com",
+      value: "harshitup9335@gmail.com",
+      href: "mailto:harshitup9335@gmail.com",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/yadav-akash17",
-      href: "https://www.linkedin.com/in/yadav-akash17",
+      value: "linkedin.com/in/harsh-upadhyay",
+      href: "https://www.linkedin.com/in/harsh-upadhyay-1st-78b40223a/",
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/git-akki",
-      href: "https://github.com/git-akki",
+      value: "github.com/harshitup",
+      href: "https://github.com/harsh22b1543003",
     },
   ];
 

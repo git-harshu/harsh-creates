@@ -5,7 +5,7 @@ import { fadeInUp, staggerContainer } from "../utils/animations";
 const BookCall = () => {
   const handleBookingClick = () => {
     window.open(
-      "https://calendar.app.google/mS1urwHfqaaBTso3A",
+      "https://calendar.app.google/RGBjTgMdLTpzbrzk6",
       "GoogleCalendar",
       "width=600,height=700,resizable=yes,scrollbars=yes"
     );
@@ -33,13 +33,11 @@ const BookCall = () => {
             </motion.div>
 
             <motion.h2 variants={fadeInUp as unknown as Variants} className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-              Let&apos;s Build Something Great
+              Let&apos;s Build Something Impactful
             </motion.h2>
 
             <motion.p variants={fadeInUp as unknown as Variants} className="text-lg text-muted-foreground mb-8 max-w-2xl">
-              Whether you need a conversion-focused website, an AI-powered
-              automation system, or a scalable web application — let&apos;s
-              discuss how I can help your business grow.
+              Whether you need a modern website, a data-driven system, or an AI-powered solution — let&apos;s talk.
             </motion.p>
 
             <motion.div variants={staggerContainer as unknown as Variants} className="flex flex-col sm:flex-row gap-4">
@@ -55,23 +53,23 @@ const BookCall = () => {
 
               <motion.a
                 variants={fadeInUp as unknown as Variants}
-                href="mailto:work.17akki.akash@gmail.com"
+                href="mailto:harshitup9335@gmail.com"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border text-foreground font-medium rounded-xl transition-colors duration-300 hover:bg-card hover:border-primary/50"
               >
-                Or Email Me
+                Send Me an Email
               </motion.a>
             </motion.div>
 
             <motion.div variants={fadeInUp as unknown as Variants} className="mt-10 pt-8 border-t border-border/50">
               <p className="text-sm text-muted-foreground mb-4">
-                What to expect:
+                What you'll get:
               </p>
               <div className="flex flex-wrap gap-4 text-sm">
                 {[
                   "30-minute discovery call",
-                  "Project scope discussion",
-                  "Custom solution proposal",
-                  "No commitment required",
+                  "Clear technical guidance",
+                  "Actionable next steps",
+                  "No pressure, no sales pitch",
                 ].map((item, index) => (
                   <motion.span variants={fadeInUp as unknown as Variants} key={index} className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />

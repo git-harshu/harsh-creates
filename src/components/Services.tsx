@@ -6,32 +6,32 @@ const services = [
   {
     icon: Globe,
     title: "Web Development",
-    description: "High-performing websites and web applications built with modern frameworks. Conversion-focused design that drives real business results.",
-  },
-  {
-    icon: Bot,
-    title: "AI Agents & Automation",
-    description: "Custom AI agents, MCP servers, and automation workflows that reduce repetitive work and improve decision-making.",
+    description: "Modern, responsive websites and web applications built with React and WordPress. Clean UI, fast performance, and conversion-focused design.",
   },
   {
     icon: Code2,
-    title: "Custom Applications",
-    description: "Scalable web applications built with React, Next.js, and modern tech stacks. From MVPs to production-ready systems.",
+    title: "Data Science & Machine Learning",
+    description: "End-to-end data solutions including EDA, predictive modeling, and ML pipelines using Python, TensorFlow, and Scikit-learn.",
+  },
+  {
+    icon: Bot,
+    title: "AI & Automation",
+    description: "AI-powered systems including NLP solutions, LLM-based workflows, RAG pipelines, and intelligent automation to reduce manual effort.",
   },
   {
     icon: Database,
-    title: "E-Commerce Solutions",
-    description: "Conversion-optimized e-commerce platforms that scale with your business. Performance, UX, and purchase flow optimization.",
+    title: "Custom Applications",
+    description: "Scalable applications from MVP to production using modern stacks and cloud infrastructure.",
   },
   {
     icon: Zap,
-    title: "Technical SEO",
-    description: "Improve search visibility and website performance through technical optimization and ongoing maintenance.",
+    title: "Data Analytics & Visualization",
+    description: "Interactive dashboards and analytics using Power BI, Python, and SQL to turn raw data into actionable insights.",
   },
   {
     icon: Settings,
-    title: "System Integration",
-    description: "Connect your tools and automate workflows. API integrations, data pipelines, and system architecture.",
+    title: "Cloud & ETL Systems",
+    description: "Cloud-based data pipelines and warehouses using Microsoft Azure and AWS for reliable, scalable data processing.",
   },
 ];
 
@@ -53,7 +53,7 @@ const Services = () => {
             What I Build
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Digital systems designed for results — not just for launch. Every solution is built to drive conversions, streamline operations, and support growth.
+            Purpose-driven digital solutions — designed for performance, scalability, and real business impact.
           </p>
         </motion.div>
 

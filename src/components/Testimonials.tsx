@@ -4,27 +4,27 @@ import { fadeInUp, staggerContainer } from "../utils/animations";
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "Founder, TechStart",
-    content: "Akash transformed our outdated website into a conversion machine. Within 3 months, our lead generation increased by 180%. His attention to detail and understanding of user experience is exceptional.",
+    name: "Pablo Kuemin",
+    role: "Founder, Hair Mastery",
+    content: "Harsh built an incredible website and delivered comprehensive services that transformed our online presence. The performance and user experience are outstanding. Highly professional and results-driven.",
     rating: 5,
   },
   {
-    name: "Marcus Chen",
-    role: "CEO, GrowthLabs",
-    content: "The AI automation system Akash built saved us 20+ hours per week. He understood our workflow challenges and delivered a solution that exceeded expectations. Highly recommend for any AI projects.",
+    name: "Marco Netali",
+    role: "Founder, Modom Grooming",
+    content: "Working with Harsh on our e-commerce website was seamless. He created a conversion-optimized platform that increased our sales significantly. His attention to detail and expertise is exceptional.",
+    rating: 5,
+  },
+  {
+    name: "Sarah Mitchell",
+    role: "Founder, TechStart",
+    content: "Harsh transformed our outdated website into a conversion machine. Within 3 months, our lead generation increased by 180%. His attention to detail and understanding of user experience is exceptional.",
     rating: 5,
   },
   {
     name: "Elena Rodriguez",
     role: "E-commerce Director, StyleHub",
-    content: "Our e-commerce platform needed serious performance optimization. Akash improved our page load times by 60% and the checkout flow redesign increased conversions significantly.",
-    rating: 5,
-  },
-  {
-    name: "James Wilson",
-    role: "CTO, DataFlow Inc",
-    content: "Working with Akash on our MCP server implementation was seamless. He has deep knowledge of AI systems and delivered a robust, scalable solution that our team could easily maintain.",
+    content: "Our e-commerce platform needed serious performance optimization. Harsh improved our page load times by 60% and the checkout flow redesign increased conversions significantly.",
     rating: 5,
   },
 ];

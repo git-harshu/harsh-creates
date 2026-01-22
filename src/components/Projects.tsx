@@ -5,27 +5,35 @@ import { fadeInUp, staggerContainer } from "../utils/animations";
 const projects = [
   {
     icon: ShoppingCart,
-    title: "Grooming E-commerce",
-    category: "E-commerce",
-    description: "A Switzerland-based unisex grooming brand e-commerce platform with optimized purchase flow, performance enhancements, and conversion-focused UX design.",
-    technologies: ["WordPress", "WooCommerce", "Custom Plugins", "SEO"],
+    title: "Modom Grooming",
+    category: "E-commerce | Web Development",
+    description: "Developed a conversion-optimized WordPress e-commerce website for an international unisex grooming brand. Implemented custom themes, WooCommerce integration, and SEO optimization resulting in improved sales performance.",
+    technologies: ["WordPress", "WooCommerce", "Elementor", "HTML", "CSS", "JavaScript"],
     link: "https://modomgrooming.com",
-  },
-  {
-    icon: Bot,
-    title: "AI Sales Assistant",
-    category: "AI Automation",
-    description: "Custom AI agent that handles initial customer inquiries, qualifies leads, and schedules meetings automatically — reducing response time by 90%.",
-    technologies: ["Python", "OpenAI", "MCP Protocol", "Webhooks"],
-    link: "#",
   },
   {
     icon: Globe,
     title: "Hair Mastery",
-    category: "Web Application",
-    description: "Full-stack analytics dashboard with real-time data visualization, user authentication, and role-based access control for a B2C startup.",
-    technologies: ["Wordpress", "Elementor", "Hostinger", "PostgreSQL"],
+    category: "LMS | Web Development",
+    description: "Built a comprehensive WordPress Learning Management System for Hair Mastery, enabling online courses, student management, and interactive learning experiences. Custom theme development with full LMS functionality.",
+    technologies: ["WordPress", "LearnDash", "Elementor", "Custom PHP", "HTML", "CSS"],
     link: "https://hair-mastery.com",
+  },
+  {
+    icon: Bot,
+    title: "Automatic Number Plate Recognition System",
+    category: "Computer Vision | Deep Learning",
+    description: "Built a real-time ANPR system using Python, OpenCV, and TensorFlow for detecting and recognizing vehicle number plates from images and videos with 85%+ OCR accuracy.",
+    technologies: ["Python", "OpenCV", "TensorFlow", "Deep Learning", "Computer Vision"],
+    link: "#",
+  },
+  {
+    icon: Globe,
+    title: "Azure Data Warehouse & Power BI Analytics",
+    category: "Cloud | Data Engineering",
+    description: "Designed a cloud-based ETL and analytics system processing 1M+ stock market records with automated pipelines and interactive Power BI dashboards.",
+    technologies: ["Azure Data Factory", "Azure Data Lake", "Azure SQL", "Power BI", "SQL"],
+    link: "#",
   },
 ];
 
@@ -47,7 +55,7 @@ const Projects = () => {
             Featured Work
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A selection of projects that showcase my expertise in web development, AI systems, and automation.
+            A selection of real-world projects showcasing my expertise in web development, data science, and AI.
           </p>
         </motion.div>
 
@@ -56,7 +64,7 @@ const Projects = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false }}
-          className="grid md:grid-cols-2 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-2 gap-6"
         >
           {projects.map((project, index) => (
             <motion.a

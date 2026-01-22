@@ -12,7 +12,7 @@ const Footer = () => {
           className="flex flex-col sm:flex-row items-center justify-between gap-4"
         >
           <div className="flex items-center gap-2">
-            <span className="text-xl font-bold">AY</span>
+            <span className="text-xl font-bold">HU</span>
             <span className="text-muted-foreground">•</span>
             <span className="text-sm text-muted-foreground">Web & AI Systems Engineer</span>
           </div>
@@ -25,7 +25,7 @@ const Footer = () => {
           </nav>
 
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Akash Yadav
+            © {new Date().getFullYear()} Harsh Upadhyay
           </p>
         </motion.div>
       </div>

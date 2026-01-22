@@ -20,8 +20,7 @@ const Index = () => {
         <Services />
         <Projects />
         <Testimonials />
-        <RoiCalculator />
-        <ProjectAudit />
+       
 
         <About />
         <BookCall />

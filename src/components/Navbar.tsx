@@ -2,6 +2,7 @@ import { motion, Variants } from "framer-motion";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { fadeInUp, staggerContainer } from "../utils/animations";
+import Preloader from "./Preloader";
 
 const navLinks = [
   { href: "#services", label: "Services" },
@@ -14,6 +15,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
+    <>
+    <Preloader />
     <motion.header
       initial={{ opacity: 0, filter: "blur(10px)" }}
       animate={{ opacity: 1, filter: "blur(0px)" }}
@@ -24,7 +27,7 @@ const Navbar = () => {
         <nav className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#" className="text-xl font-bold tracking-tight">
-            AY<span className="text-primary">.</span>
+            HU<span className="text-primary">.</span>
           </a>
 
           {/* Desktop Nav */}
@@ -94,6 +97,7 @@ const Navbar = () => {
         )}
       </div>
     </motion.header>
+    </>
   );
 };
 

@@ -30,7 +30,20 @@ const Hero = () => {
             variants={fadeInUp as unknown as Variants}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8"
           >
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            <span className="relative flex h-2 w-2">
+              <motion.span
+                className="absolute inline-flex h-full w-full rounded-full bg-primary"
+                initial={{ scale: 1, opacity: 0.5 }}
+                animate={{ scale: [1, 3], opacity: [0.5, 0] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatDelay: 1,
+                  ease: "easeOut",
+                }}
+              />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
             <span className="text-sm text-muted-foreground">Available for new projects</span>
           </motion.div>
 
@@ -39,9 +52,9 @@ const Hero = () => {
             variants={fadeInUp as unknown as Variants}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
           >
-            Building <span className="text-primary">Digital Systems</span>
+            Building <span className="text-primary">Data-Driven & Scalable</span>
             <br />
-            That Drive Growth
+            Digital Systems
           </motion.h1>
 
           {/* Subtitle */}
@@ -49,8 +62,8 @@ const Hero = () => {
             variants={fadeInUp as unknown as Variants}
             className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-balance"
           >
-            Web & AI Systems Engineer helping founders and startups build high-performing websites,
-            scalable applications, and AI-powered automation.
+            Freelance Web Developer & AI Engineer helping startups and businesses build high-performing websites,
+            intelligent data systems, and AI-powered solutions.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -68,10 +81,10 @@ const Hero = () => {
             </motion.a>
             <motion.a
               variants={fadeInUp as unknown as Variants}
-              href="#services"
+              href="#projects"
               className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-lg transition-colors duration-300 hover:bg-card hover:border-primary/50"
             >
-              View Services
+              View My Work
             </motion.a>
           </motion.div>
 
@@ -81,8 +94,8 @@ const Hero = () => {
             className="flex items-center justify-center gap-8 sm:gap-12 mt-16 pt-16 border-t border-border/50"
           >
             {[
-              { value: "3+", label: "Years Experience" },
-              { value: "50+", label: "Projects Delivered" },
+              { value: "1.5+", label: "Years Experience" },
+              { value: "5+", label: "Projects Delivered" },
               { value: "100%", label: "Client Satisfaction" },
             ].map((stat, index) => (
               <motion.div key={index} variants={fadeInUp as unknown as Variants} className="text-center">
